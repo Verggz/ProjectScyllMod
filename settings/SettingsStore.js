@@ -14,7 +14,6 @@ class SettingsStore{
       'url':"http://localhost:8080/api/v1/mod/settings/" + Player.getName() + "?key=" + Authenticator.AUTH_KEY,
       'json':true
     }).then(function(response){
-      console.log(response);
       if(response.status == 'success'){
         SettingsStore.ahrange = response.settings.ahprofit;
         SettingsStore.binrange = response.settings.binprofit;

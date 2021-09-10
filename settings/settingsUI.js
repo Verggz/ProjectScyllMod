@@ -50,7 +50,6 @@ class SettingsUI {
 
     constructor() {
         this.initialize(this);
-        console.log("auth key",Authenticator.AUTH_KEY)
         this.registerListener("key", newKey =>{
           Authenticator.UpdateKey(newKey);
         })
