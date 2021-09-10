@@ -3,6 +3,6 @@
     "creator": "notpenguin",
     "version": "1.0.0",
     "description": "The mod for the flipping tool project scyll",
-    "requires": ["requestV2","PogData","Vigilance"],
+    "requires": ["requestV2","Vigilance"],
     "entry": "main.js"
   }

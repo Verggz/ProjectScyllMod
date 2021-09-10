@@ -1,8 +1,19 @@
 import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, Color,@CheckboxProperty } from 'Vigilance';
 import SettingsStore from './SettingsStore';
+import Authenticator from '../auth';
 
 @Vigilant("projectscyll")
 class SettingsUI {
+
+    @TextProperty({
+      name: "API settings key",
+      description:"Enter your API key to save your settings onto the cloud (currently disabled)",
+      category: "General",
+      subcategory: "Flips",
+      placeholder: "Enter key..."
+    })
+    key = Authenticator.AUTH_KEY;
+
       @TextProperty({
         name: "AH flip profit range",
         description:"Enter the range at which you would like to find AH flips for.",
@@ -39,6 +50,10 @@ class SettingsUI {
 
     constructor() {
         this.initialize(this);
+        console.log("auth key",Authenticator.AUTH_KEY)
+        this.registerListener("key", newKey =>{
+          Authenticator.UpdateKey(newKey);
+        })
         this.registerListener("binflip", newText => {
             SettingsStore.binrange = newText;
         });

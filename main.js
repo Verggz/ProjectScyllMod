@@ -1,6 +1,7 @@
 import SettingsUI from "./settings/settingsUI";
 import SettingsStore from './settings/SettingsStore'
 import request from '../requestV2';
+import Authenticator from './auth';
 
 function nFormatter(num, digits) {
     const lookup = [
@@ -44,7 +45,8 @@ function eventloop(){
   if(guiKeyBind.isPressed()){
      SettingsUI.openGUI();
   }
-  
+
+
   if(startTime >= 1200){
     startTime = 0;
     if(SettingsStore.binenabled == true && ahcall == false){
