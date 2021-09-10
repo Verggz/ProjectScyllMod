@@ -49,8 +49,8 @@ function eventloop(){
 
   if(startTime >= 1200){
     startTime = 0;
-    if(SettingsStore.binenabled == true && ahcall == false){
-      ahcall = true;
+    if(SettingsStore.binenabled == true && bincall == false){
+      bincall = true;
 
       request({
         'method':'POST',
@@ -61,7 +61,7 @@ function eventloop(){
           json: true,
           })
           .then(function(response) {
-            ahcall = false;
+            bincall = false;
             var clickableMessage = new Message(
               `&3found a BIN snipe! ` ,
               new TextComponent("&3&l(Hover for more details) ").setHoverValue(`Item: ${response.random.item.item}, Usual price: ${nFormatter(response.random.usual.price,2)}, Auction price: ${nFormatter(response.random.item.price,2)}, Profit: ${nFormatter(response.random.usual.price - response.random.item.price,2)}`),
@@ -69,13 +69,13 @@ function eventloop(){
             );
               ChatLib.chat(clickableMessage)
           }).catch(function(e){
-            ahcall = false;
+            bincall = false;
             console.log(e);
         });
     }
 
-    if(SettingsStore.ahenabled == true && bincall == false){
-      bincall = true;
+    if(SettingsStore.ahenabled == true && ahcall == false){
+      ahcall = true;
       request({
         'method':'POST',
           url: 'https://projectscyll.herokuapp.com/api/v1/nitric/auction/advise/profit/rt',
@@ -85,7 +85,7 @@ function eventloop(){
           json: true,
           })
           .then(function(response) {
-            bincall = false;
+            ahcall = false;
             var clickableMessage = new Message(
               `&6found an AH flip! ` ,
               new TextComponent("&6&l(Hover for more details) ").setHoverValue(`Item: ${response.item.item}, Usual price: ${nFormatter(response.item.normalprice)}, Auction price: ${nFormatter(response.item.curprice)}, Profit: ${nFormatter(response.item.profit)}`),
@@ -93,7 +93,7 @@ function eventloop(){
             );
               ChatLib.chat(clickableMessage)
           }).catch(function(e){
-            bincall = false;
+            ahcall = false;
             console.log(e);
           });
     }
