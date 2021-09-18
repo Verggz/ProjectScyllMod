@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "name": "ProjectScylltest",
+=======
+    "name": "ProjectScyll",
+>>>>>>> 5d23ee229090f5e75e1f87f5aa43e50be6ed2e02
     "creator": "notpenguin",
     "version": "1.0.0",
     "description": "The mod for the flipping tool project scyll",
