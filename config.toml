@@ -4,7 +4,7 @@
 	[general.flips]
 		api_settings_key = ""
 		enable_bin_flips = true
-		ah_flip_profit_range = "100000"
-		bin_flip_profit_range = "100000"
+		ah_flip_profit_range = "1000000"
+		bin_flip_profit_range = "1000000"
 		enable_ah_flips = true
 
